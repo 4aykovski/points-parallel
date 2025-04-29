@@ -71,14 +71,14 @@ void A6_0_WriteData0() {
 	
 	for(y=1; y<=Nyp; y++) { //do k = 1,nyp
 		for(x=1; x<=Nxp; x++) { //do i = 1,nxp
-			KRO1[0][y][x] = RO1[y][x];
-			KRO2[0][y][x] = RO2[y][x];
-			KU1[0][y][x]  = U1[y][x];
-			KU2[0][y][x]  = U2[y][x];
-			KV1[0][y][x]  = V1[y][x];
-			KV2[0][y][x]  = V2[y][x];
-			KE1[0][y][x]  = E1[y][x];
-			KE2[0][y][x]  = E2[y][x];
+			GRO1[0][y][x] = RO1[y][x];
+			GRO2[0][y][x] = RO2[y][x];
+			GU1[0][y][x]  = U1[y][x];
+			GU2[0][y][x]  = U2[y][x];
+			GV1[0][y][x]  = V1[y][x];
+			GV2[0][y][x]  = V2[y][x];
+			GE1[0][y][x]  = E1[y][x];
+			GE2[0][y][x]  = E2[y][x];
 	} //enddo
 } //enddo
 

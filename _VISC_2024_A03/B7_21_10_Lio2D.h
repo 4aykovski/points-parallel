@@ -181,7 +181,7 @@ for(X=3; X<=Nxp-2; X++) { //do i=3,NXp-2
 //!BEGIN (ÄËß ÂßÇÊÎÑÒÈ).
 //!*********************************************************************
 		if ((vis10 != 0.0) || (vis20 != 0.0)) {
-			C7_21_120_Vis(Met,  FU,FV,FE,  KRO1[Old],KRO2[Old],KE1[Old],KE2[Old]);
+			C7_21_120_Vis(Met,  FU,FV,FE,  GRO1[Old],GRO2[Old],GE1[Old],GE2[Old]);
 			LU[Y][X] += DVIS[0];
 			LV[Y][X] += DVIS[1];
 			LE[Y][X] += DVIS[2];

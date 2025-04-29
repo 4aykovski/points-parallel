@@ -26,8 +26,8 @@ double ak1, beta, p1N, p2N;
 for(Y=3; Y<=Nyp-2; Y++) { //DO K = 3,Nyp-2
 	for(X=3; X<=Nxp-2; X++) { //DO I = 3,Nxp-2
 
-		NewRO1[Y][X] = RO1[Y][X] - Tau * LRO1[Y][X];
-		NewRO2[Y][X] = RO2[Y][X] - Tau * LRO2[Y][X];
+		NewRO1[Y][X] = RO1[Y][X] - Tau * KRO1[Y][X];
+		NewRO2[Y][X] = RO2[Y][X] - Tau * KRO2[Y][X];
 
 ak1 = F7_21_210_AK(OldRO1[Y][X],OldRO2[Y][X],OldU1[Y][X],OldU2[Y][X],
 				   OldE1[Y][X]/c1v,OldE2[Y][X]/c2v);
@@ -39,11 +39,11 @@ ak1 = F7_21_210_AK(OldRO1[Y][X],OldRO2[Y][X],OldU1[Y][X],OldU2[Y][X],
 //!			write(*,*)p1N,p2N
 
 		if(p1N/(p1N+p2N/om) < concmin) {
-			a_U = (RO2[Y][X]*U2[Y][X]-Tau*LU2[Y][X]) / p2N;
-			a_V = (RO2[Y][X]*V2[Y][X]-Tau*LV2[Y][X]) / p2N;
+			a_U = (RO2[Y][X]*U2[Y][X]-Tau*KU2[Y][X]) / p2N;
+			a_V = (RO2[Y][X]*V2[Y][X]-Tau*KV2[Y][X]) / p2N;
 			vu  = pow(U2[Y][X],2) + pow(V2[Y][X],2);
 			vun = pow(a_U,2)+pow(a_V,2);
-			a_E = (RO2[Y][X]*(E2[Y][X]+vu/2)-Tau*LE2[Y][X]) / p2N - vun/2.0;
+			a_E = (RO2[Y][X]*(E2[Y][X]+vu/2)-Tau*KE2[Y][X]) / p2N - vun/2.0;
 
 			c2UN = a_U;
 			c2VN = a_V;
@@ -56,11 +56,11 @@ ak1 = F7_21_210_AK(OldRO1[Y][X],OldRO2[Y][X],OldU1[Y][X],OldU2[Y][X],
 		}
 
 		else if(p2N/(p1N+p2N) < concmin) {
-			a_U = (RO1[Y][X]*U1[Y][X]-Tau*LU1[Y][X]) / p1N;
-			a_V = (RO1[Y][X]*V1[Y][X]-Tau*LV1[Y][X]) / p1N;
+			a_U = (RO1[Y][X]*U1[Y][X]-Tau*KU1[Y][X]) / p1N;
+			a_V = (RO1[Y][X]*V1[Y][X]-Tau*KV1[Y][X]) / p1N;
 			vu  = pow(U1[Y][X],2) + pow(V1[Y][X],2);
 			vun = pow(a_U,2) + pow(a_V,2);
-a_E = (RO1[Y][X]*(E1[Y][X]+vu/2)-Tau*LE1[Y][X]) / p1N - vun/2.0;
+a_E = (RO1[Y][X]*(E1[Y][X]+vu/2)-Tau*KE1[Y][X]) / p1N - vun/2.0;
 
 			c1UN = a_U;
 			c1VN = a_V;
@@ -72,8 +72,8 @@ a_E = (RO1[Y][X]*(E1[Y][X]+vu/2)-Tau*LE1[Y][X]) / p1N - vun/2.0;
 		}
 
 		else {
-			f1 = -LU1[Y][X];
-			f2 = -LU2[Y][X];
+			f1 = -KU1[Y][X];
+			f2 = -KU2[Y][X];
 
 delt = (p1N+ak1*Tau) * (p2N+ak1*Tau) - pow(ak1*Tau,2);
 
@@ -86,8 +86,8 @@ delt2 = (RO2[Y][X]*U2[Y][X]+Tau*f2) * (p1N+ak1*Tau) +
 			c1UN = delt1/delt;
 			c2UN = delt2/delt;
 
-			f1 = -LV1[Y][X];
-			f2 = -LV2[Y][X];
+			f1 = -KV1[Y][X];
+			f2 = -KV2[Y][X];
 
 delt  = (p1N+ak1*Tau) * (p2N+ak1*Tau) - pow(ak1*Tau,2);
 
@@ -100,10 +100,10 @@ delt2 = (RO2[Y][X]*V2[Y][X]+Tau*f2) * (p1N+ak1*Tau) +
 			c1VN = delt1/delt;
 			c2VN = delt2/delt;
 
-q1 = -LE1[Y][X] + ak1*c1UN*(c2UN-c1UN) + ak1*beta*pow(c1UN-c2UN,2) +
+q1 = -KE1[Y][X] + ak1*c1UN*(c2UN-c1UN) + ak1*beta*pow(c1UN-c2UN,2) +
 	 ak1*c1VN*(c2VN-c1VN) + ak1*beta*pow(c1VN-c2VN,2);
 
-q2 = -LE2[Y][X] + ak1*c2UN*(c1UN-c2UN) + ak1*(1-beta)*pow(c1UN-c2UN,2) +
+q2 = -KE2[Y][X] + ak1*c2UN*(c1UN-c2UN) + ak1*(1-beta)*pow(c1UN-c2UN,2) +
 	 ak1*c2VN*(c1VN-c2VN) + ak1*(1-beta)*pow(c1VN-c2VN,2);
 
 delt = (p1N+qk*ak1*Tau/c1v) * (p2N+qk*ak1*Tau/c2v) -

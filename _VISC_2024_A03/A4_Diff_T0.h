@@ -116,13 +116,13 @@ Radius3 = sqrt(pow(xrr-X3C*sd*cos(pi/6),2) + pow(yrr+sd*sin(pi/6),2));
 //!—»ћћ≈“–»я_Begin_5.!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			for(y=IndexYN; y<=IndexYK; y++) {  //do k = NYdn, NYup
 
-LRO1[y][x] = ccA * (RO1[y+1][x] + RO1[y-1][x] + RO1[y][x+1] + RO1[y][x-1] - 4.0*RO1[y][x]);
+KRO1[y][x] = ccA * (RO1[y+1][x] + RO1[y-1][x] + RO1[y][x+1] + RO1[y][x-1] - 4.0*RO1[y][x]);
 			}
 		} //enddo:for(i).
 //!@@@@ ƒЋя —»ћћ≈“–»» 7 @@@@@@@@@@@@@@@@@!
 		for(x=IndexXN+1; x<=IndexXK; x++) { //do i = IL1 + 1, IR0
 			for(y=IndexYN; y<=IndexYK; y++) { //do k = NYdn, NYup  
-				RO1[y][x] += LRO1[y][x];
+				RO1[y][x] += KRO1[y][x];
 			}
 
 //!—имметрич.гр.усл.на нижн.гр.(почти в 2 раза уменш.к - во узлов)
