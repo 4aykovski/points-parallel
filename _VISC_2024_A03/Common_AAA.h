@@ -3,8 +3,8 @@
 //const int n1001 = 1001;
 
 #define MR 2
-#define MX 1001
-#define MY 1001
+#define MX 1501
+#define MY 1501
 
 double RO1[MY][MX], LRO1[MY][MX], KRO1[MR][MY][MX]; //BRO1[MY][MX];
 double RO2[MY][MX], LRO2[MY][MX], KRO2[MR][MY][MX]; //BRO2[MY][MX];

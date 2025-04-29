@@ -5,7 +5,7 @@ int Y, X; //хмдейяш дкъ опнундю он люрпхжюл!!!!! (ашкн K, I).
 double an0, am10m, am20m, al1m, al2m, al1p, al2p, p1p, p2p, om;
 double d0, d0Nusl;
 
-double r1, r2, c1v, c2v, cvMet, qk;
+double r1, r2, c1v, c2v, qk, cvMet;
 double Gap; //common/a/GAP
 double a_pl, a_mi, s, A, B, C, D;
 

@@ -3,18 +3,24 @@
 #include "C7_21_11_DpmXY.h"
 #include "C7_21_120_Vis.h"
 
-void B7_21_10_Lio2D(int Old, int Met, double gam,
+void B7_21_10_Lio2D(int Old, int Met,
 	double FRO[MY][MX],double FU[MY][MX],double FV[MY][MX],double FE[MY][MX],
 	double LRO[MY][MX],double LU[MY][MX],double LV[MY][MX],double LE[MY][MX]) {
 
-double a_R, a_U, a_V, a_E, hyr;
+double a_R, a_U, a_V, a_E, hyr, gam;
 double a_P, a_A, a_H, a_S, sM, a_ROp, a_ROm;
 double a_R1, a_U1, a_V1, a_E1;
 double a_R2, a_U2, a_V2, a_E2;
 
 //*****Õ¿◊¿ÀŒ œ–Œ’Œƒ¿ œŒ √Œ–»«ŒÕ“¿ÀﬂÃ.************************************************
-if (Met == 1) {cvMet = c1v;}
-else if (Met == 2) {cvMet = c2v;}
+if (Met == 1) {
+	cvMet = c1v;
+	gam = gam1;
+}
+else if (Met == 2) {
+	cvMet = c2v;
+	gam = gam2;
+}
 
 for(Y=3; Y<=Nyp-2; Y++) { //do k = 3,NYp-2
 	for(X=1; X<=Nxp; X++) { //	do i = 1,NXp
