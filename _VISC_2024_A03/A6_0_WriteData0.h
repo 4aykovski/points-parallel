@@ -69,16 +69,16 @@ void A6_0_WriteData0() {
 	*/
 	} //endif:(nf == 1).
 	
-	for(y=1; y<=Nyp; y++) { //do k = 1,nyp
+	for (y = 1; y <= Nyp; y++) { //do k = 1,nyp
 		for(x=1; x<=Nxp; x++) { //do i = 1,nxp
-			GRO1[0][y][x] = RO1[y][x];
-			GRO2[0][y][x] = RO2[y][x];
-			GU1[0][y][x]  = U1[y][x];
-			GU2[0][y][x]  = U2[y][x];
-			GV1[0][y][x]  = V1[y][x];
-			GV2[0][y][x]  = V2[y][x];
-			GE1[0][y][x]  = E1[y][x];
-			GE2[0][y][x]  = E2[y][x];
+			GRO1[y][x] = RO1[y][x];
+			GRO2[y][x] = RO2[y][x];
+			GU1[y][x]  = U1[y][x];
+			GU2[y][x]  = U2[y][x];
+			GV1[y][x]  = V1[y][x];
+			GV2[y][x]  = V2[y][x];
+			GE1[y][x]  = E1[y][x];
+			GE2[y][x]  = E2[y][x];
 	} //enddo
 } //enddo
 

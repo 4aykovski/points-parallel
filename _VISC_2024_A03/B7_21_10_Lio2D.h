@@ -3,7 +3,7 @@
 #include "C7_21_11_DpmXY.h"
 #include "C7_21_120_Vis.h"
 
-void B7_21_10_Lio2D(int Old, int Met,
+void B7_21_10_Lio2D(int Met,
 	double FRO[MY][MX],double FU[MY][MX],double FV[MY][MX],double FE[MY][MX],
 	double LRO[MY][MX],double LU[MY][MX],double LV[MY][MX],double LE[MY][MX]) {
 
@@ -181,7 +181,7 @@ for(X=3; X<=Nxp-2; X++) { //do i=3,NXp-2
 //!BEGIN (ÄËß ÂßÇÊÎÑÒÈ).
 //!*********************************************************************
 		if ((vis10 != 0.0) || (vis20 != 0.0)) {
-			C7_21_120_Vis(Met,  FU,FV,FE,  GRO1[Old],GRO2[Old],GE1[Old],GE2[Old]);
+			C7_21_120_Vis(Met,  FU,FV,FE,  GRO1,GRO2,GE1,GE2);
 			LU[Y][X] += DVIS[0];
 			LV[Y][X] += DVIS[1];
 			LE[Y][X] += DVIS[2];
